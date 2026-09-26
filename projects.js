@@ -29,6 +29,7 @@ const projects = [
 
         status:
             "Completed"
+<<<<<<< HEAD
     },
 
 
@@ -63,6 +64,8 @@ const projects = [
 
         status:
             "Completed"
+=======
+>>>>>>> f2e9d995117deac3885241c589809b53f324b23c
     }
 
 ];
