@@ -1,3 +1,4 @@
+```javascript
 // ============================================
 // MOBILE NAVIGATION MENU
 // ============================================
@@ -84,8 +85,8 @@ if (footer) {
 
     if (footerParagraph) {
 
-        footerParagraph.innerHTML =
-            `© ${currentYear} MD Azam. All Rights Reserved.`;
+        footerParagraph.textContent =
+            `© ${currentYear} MD Azam`;
 
     }
 
@@ -93,7 +94,7 @@ if (footer) {
 
 
 // ============================================
-// ADD ACTIVE EFFECT TO NAVIGATION LINKS
+// ACTIVE NAVIGATION LINK
 // ============================================
 
 const sections =
@@ -147,12 +148,18 @@ window.addEventListener("scroll", () => {
 
 
 // ============================================
-// SIMPLE SCROLL REVEAL EFFECT
+// SCROLL REVEAL EFFECT
 // ============================================
 
 const revealElements =
     document.querySelectorAll(
-        ".about-card, .skill-card, .project-card, .experience-card, .education-card, .certificate-card, .contact-card"
+        ".about-card, " +
+        ".skill-card, " +
+        ".project-card, " +
+        ".experience-card, " +
+        ".education-card, " +
+        ".certificate-card, " +
+        ".contact-card"
     );
 
 
@@ -188,3 +195,4 @@ window.addEventListener(
 // Run once when page loads
 
 revealOnScroll();
+```

@@ -1,198 +1,100 @@
-// ============================================
-// PROJECT DATA
-// ============================================
-
 const projects = [
-
     {
-        title: "Classification of Healthcare Data Using Random Forest",
-
+        title: "Machine Learning – Healthcare Data Analysis",
+        role: "Machine Learning",
         description:
-            "A machine learning project developed during my internship to classify healthcare data using the Random Forest algorithm. The project included data preprocessing, model training, and performance evaluation.",
-
+            "Analyzed healthcare data to support outcome prediction through data preprocessing, feature engineering, and classification.",
         technologies: [
             "Python",
             "Pandas",
             "NumPy",
             "Scikit-learn",
-            "Random Forest",
-            "Matplotlib"
+            "Matplotlib",
+            "Seaborn"
         ],
-
         image: "assets/Projects/Healthcare-Project.png",
-
-        github:
-            "https://github.com/MD5680/ML_Internship-",
-
-        result:
-            "Model Accuracy: 81.43%",
-
-        status:
-            "Completed"
-<<<<<<< HEAD
+        github: "https://github.com/MD5680/ML_Internship-",
+        status: "Completed"
     },
-
-
-    // ============================================
-    // E-COMMERCE BUSINESS ANALYTICS
-    // ============================================
 
     {
         title: "E-Commerce Business Analytics",
-
+        role: "Data Engineering & Analytics",
         description:
-            "An end-to-end data engineering and analytics project built with Databricks, PySpark, SQL, and Python. The project includes data ingestion, data quality checks, data exploration, data cleaning, data modeling, fact and dimension tables, gold business tables, and advanced SQL analysis.",
-
+            "Built a data pipeline to ingest, validate, transform, and model e-commerce data for business analytics and reporting.",
         technologies: [
             "Databricks",
             "PySpark",
-            "Python",
             "SQL",
-            "Apache Spark",
             "Git",
             "GitHub"
         ],
+        image: "assets/Projects/ecommerce-business-analytics.png",
+        github: "#",
+        status: "Completed"
+    },
 
-        image:
-            "assets/Projects/ecommerce-business-analytics.png",
-
-        github:
-            "https://github.com/MD5680/Ecommerce-Business-Analytics.git",
-
-        result:
-            "3-task Databricks Job with task dependencies and Databricks Asset Bundles (YAML).",
-
-        status:
-            "Completed"
-=======
->>>>>>> f2e9d995117deac3885241c589809b53f324b23c
+    {
+        title: "Student–LSA Matching Database Architecture",
+        role: "Database Structure Architect — HabotConnect IT Services",
+        description:
+            "Designed and implemented a normalized PostgreSQL database for student–LSA matching, session management, and payout reporting, including ERD relationships, primary/foreign keys, data-integrity constraints, lineage tracking, and SQL queries.",
+        technologies: [
+            "PostgreSQL",
+            "SQL",
+            "ERD",
+            "Database Design",
+            "Data Modeling"
+        ],
+        image: "assets/Projects/student-lsa-database.png",
+        github: "#",
+        status: "Completed"
     }
-
 ];
 
 
-// ============================================
-// DISPLAY PROJECTS
-// ============================================
+const projectsContainer = document.getElementById("projects-container");
 
-function displayProjects() {
-
-    const projectsContainer =
-        document.getElementById("projects-container");
-
-
-    // Check if the container exists
-
-    if (!projectsContainer) {
-        console.error("Projects container not found.");
-        return;
-    }
-
-
-    // Clear existing content
-
-    projectsContainer.innerHTML = "";
-
-
-    // Loop through all projects
-
+if (projectsContainer) {
     projects.forEach((project) => {
+        const projectCard = document.createElement("article");
 
-        // Create project card
-
-        const projectCard =
-            document.createElement("div");
-
-        projectCard.classList.add("project-card");
-
-
-        // Create technologies HTML
-
-        const technologiesHTML =
-            project.technologies
-                .map((technology) => {
-
-                    return `<span>${technology}</span>`;
-
-                })
-                .join("");
-
-
-        // Create project card content
+        projectCard.className = "project-card";
 
         projectCard.innerHTML = `
-
-            <img
-                src="${project.image}"
-                alt="${project.title}"
-            >
+            <div class="project-image">
+                <img src="${project.image}" alt="${project.title}">
+            </div>
 
             <div class="project-content">
+                <p class="project-status">${project.status}</p>
 
-                <h3>
-                    ${project.title}
-                </h3>
+                <h3>${project.title}</h3>
 
+                <p class="project-role">
+                    <strong>Role:</strong> ${project.role}
+                </p>
 
-                <p>
+                <p class="project-description">
                     ${project.description}
                 </p>
 
-
                 <div class="project-technologies">
-
-                    ${technologiesHTML}
-
+                    ${project.technologies
+                        .map((tech) => `<span>${tech}</span>`)
+                        .join("")}
                 </div>
 
-
-                <p>
-                    <strong>
-                        ${project.result}
-                    </strong>
-                </p>
-
-
-                <p>
-                    Status:
-                    <strong>
-                        ${project.status}
-                    </strong>
-                </p>
-
-
-                <br>
-
-
-                <a
-                    href="${project.github}"
-                    target="_blank"
-                    class="btn primary-btn"
-                >
-
-                    View on GitHub
-
-                </a>
-
+                <div class="project-links">
+                    ${
+                        project.github !== "#"
+                            ? `<a href="${project.github}" target="_blank" rel="noopener noreferrer">View on GitHub →</a>`
+                            : `<span class="project-link-disabled">GitHub link coming soon</span>`
+                    }
+                </div>
             </div>
-
         `;
 
-
-        // Add project card to the website
-
         projectsContainer.appendChild(projectCard);
-
     });
-
 }
-
-
-// ============================================
-// RUN FUNCTION
-// ============================================
-
-document.addEventListener(
-    "DOMContentLoaded",
-    displayProjects
-);
